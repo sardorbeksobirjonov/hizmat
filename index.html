@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xizmatlar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 p-4">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-80 text-center">
+        <button id="showMenu" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">booshlash</button>
+        <p class="mt-2 text-sm text-gray-600">Bizning <a href="https://t.me/workiing_about_it" class="text-blue-500">Telegram kanal</a></p>
+        
+        <div id="menu" class="hidden mt-4 space-y-2">
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">💻 Web sayt yaratish</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🤖 Telegram bot kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">📄 PDF qilish kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">📇 Vizitka kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">📊 Slayde kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🎨 Logo kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🖼 Ismga rasm kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🔠 Telegram nik kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🎥 Ismga video kerak</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🎬 Video montaj</button>
+            <button class="service-btn bg-gray-200 w-full py-2 rounded transition">🎤 Audio montaj</button>
+        </div>
+
+        <p id="contact" class="hidden mt-4 text-gray-700 font-semibold">Sizning so'rovingiz bo'yicha, admin bilan bog'laning <a href="https://t.me/MuhammadSolih_web" class="text-blue-500">@MuhammadSolih_web</a></p>
+        <p id="userCount" class="mt-4 text-sm text-gray-700">Saytdan foydalanuvchilar: <span id="count">0</span></p>
+    </div>
+
+    <script>
+        let userCount = localStorage.getItem('userCount') || 0;
+        userCount++;
+        localStorage.setItem('userCount', userCount);
+        document.getElementById('count').innerText = userCount;
+
+        document.getElementById('showMenu').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.service-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('bg-green-300'));
+                this.classList.add('bg-green-300');
+                document.getElementById('contact').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
